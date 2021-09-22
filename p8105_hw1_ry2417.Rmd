@@ -70,10 +70,22 @@ Assigning the `penguins` data set to data frame of Problem 2 called `p2_df`.
 p2_df <- penguins
 ```
 
-Getting some 
-```{r}
-names(p2_df)
-```
+The size of this data set is  `r nrow(p2_df)` observations with `r ncol(p2_df)` 
+variables. The variable names are `r names(p2_df)`.\
+The max flipper length is `r max(p2_df$flipper_length_mm, na.rm = TRUE)` mm, 
+the min is `r min(p2_df$flipper_length_mm, na.rm = TRUE)` mm, and the mean is 
+`r round(mean(p2_df$flipper_length_mm, na.rm = TRUE),1)` mm.\
+The max bill length is `r max(p2_df$bill_length_mm, na.rm = TRUE)` mm, the 
+min is `r min(p2_df$bill_length_mm, na.rm = TRUE)` mm and the mean is 
+`r round(mean(p2_df$bill_length_mm, na.rm = TRUE),1)` mm.\
+The max body mass is `r max(p2_df$body_mass_g, na.rm = TRUE)` g and the min is 
+`r min(p2_df$body_mass_g, na.rm = TRUE)` g and the mean is 
+`r round(mean(p2_df$body_mass_g, na.rm = TRUE),1)` g.\
+The numbers of penguins of each specie are `r table(p2_df$species)` 
+(`r names(table(p2_df$species))`). The numbers of penguins from each island are 
+`r table(p2_df$island)` (`r names(table(p2_df$island))`).\
+There are `r table(p2_df$sex)[1]` females and `r table(p2_df$sex)[2]` males. 
+
 
 
 
