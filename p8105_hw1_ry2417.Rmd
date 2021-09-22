@@ -1,0 +1,9 @@
+---
+title: "p8105_hw1_ry2417"
+author: "Ruiqi Yan"
+date: "9/22/2021"
+output: github_document
+---
+
+
+
