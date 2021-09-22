@@ -12,7 +12,7 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
-##Problem 1
+#Problem 1#
 
 Create a data frame comprised of:\
 a random sample of size 10 from a standard Normal distribution\
@@ -43,6 +43,23 @@ mean_fac <- mean(p1_df$vec_fac)
 The mean of numerical variable is `r mean_numeric` and the mean of logical 
 variable is `r mean_logic`. The character variable and factor variable cannot be
 taken mean.\
+
+Convert the logical, character, and factor variables to numeric variables.\
+```{r, eval=FALSE}
+as.numeric(p1_df$vec_logic)
+as.numeric(p1_df$vec_char)
+as.numeric(p1_df$vec_fac)
+```
+
+The factor variable and the logical variable can be converted to be numeric, but
+the character variable cannot be converted. The logical variable has only two 
+outcomes, it was reasonable to convert 1 for TRUE and 0 for FALSE. And the 
+factor variable has three levels, so it is reasonable to assign each level with
+nature number. However, for character vector which contained many different 
+words, it has no clue for value that could be assigned to each element. This 
+explained how logical variable is taken mean. 
+
+
 
 
 
