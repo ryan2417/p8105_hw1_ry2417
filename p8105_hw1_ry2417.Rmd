@@ -5,5 +5,16 @@ date: "9/22/2021"
 output: github_document
 ---
 
+Loading all the packages needed
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+```
+
+
+
+
+
 
 
