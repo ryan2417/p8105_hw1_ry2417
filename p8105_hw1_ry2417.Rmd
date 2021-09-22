@@ -5,14 +5,31 @@ date: "9/22/2021"
 output: github_document
 ---
 
-Loading all the packages needed
+Loading all packages needed
 
 ```{r}
 library(tidyverse)
 library(palmerpenguins)
 ```
 
+##Problem 1
+Create a data frame comprised of:
+a random sample of size 10 from a standard Normal distribution\
+a logical vector indicating whether elements of the sample are greater than 0\
+a character vector of length 10\
+a factor vector of length 10, with 3 different factor “levels”\
 
+Using `tibble()` to create the date frame and naming the data frame as `p1_df`.\
+```{r}
+p1_df <- 
+  tibble(
+    vec_numeric = rnorm(10),
+    vec_logic = vec_numeric > 0,
+    vec_char = c("one", "two", "three", "four", "five", "six", "seven", "eight",
+                 "nine", "ten"),
+    vec_fac = factor(c(rep("rainy", 3), rep("sunny", 4), rep("snowy", 3)))
+  )
+```
 
 
 
