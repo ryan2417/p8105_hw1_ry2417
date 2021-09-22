@@ -4,4 +4,4 @@
 
 The repo is a project of the **Homework 1** of the class **P8105** Data Science 
 I.\
-It includes a RMD file and a scatter plot exported from the RMD file.\
+It includes a RMD file and a scatter plot exported from the RMD file.
