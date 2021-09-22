@@ -98,6 +98,12 @@ ggplot(p2_df, aes(x = bill_length_mm,
                   color = species)) + geom_point(na.rm = TRUE)
 ```
 
+Export the first scatter plot to the project directory using `ggsave`.\
+
+```{r}
+ggsave("first_scatterplot.pdf", height = 6, width = 8)
+```
+
 
 
 
