@@ -100,7 +100,7 @@ There are `r table(pull(p2_df, sex))[1]` females and `r table(pull(p2_df, sex))[
 
 Make a scatter plot of `flipper_length_mm` (y) vs `bill_length_mm` (x); color points using the `species` variable.\
 
-```{r, bill_vs_flipper_scatterplot}
+```{r, flipper_vs_bill_scatterplot}
 ggplot(p2_df, aes(x = bill_length_mm, 
                   y = flipper_length_mm, 
                   color = species)) + geom_point(na.rm = TRUE)
@@ -109,7 +109,7 @@ ggplot(p2_df, aes(x = bill_length_mm,
 Export the first scatter plot to the project directory using `ggsave`.\
 
 ```{r, save_plot}
-ggsave("bill_vs_flipper_scatterplot.pdf", height = 6, width = 8)
+ggsave("flipper_vs_bill_scatterplot.pdf", height = 6, width = 8)
 ```
 
 
