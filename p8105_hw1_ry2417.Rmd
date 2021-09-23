@@ -7,7 +7,7 @@ output: github_document
 
 Loading all packages needed\
 
-```{r, echo = FALSE, message = FALSE}
+```{r, message = FALSE}
 library(tidyverse)
 ```
 
@@ -36,13 +36,11 @@ p1_df <-
 Taking the mean of each variable in `p1_df`.\
 
 ```{r, warning = FALSE, take_mean}
-mean_numeric <- mean(pull(p1_df, vec_numeric))
+mean_numeric <- round(mean(pull(p1_df, vec_numeric)), 1)
 mean_logic <- mean(pull(p1_df, vec_logic))
-mean_char <- mean(pull(p1_df, vec_char))
-mean_fac <- mean(pull(p1_df, vec_fac))
 ```
 
-The mean of numerical variable is `r round(mean_numeric, 1)` and the mean of logical variable is `r round(mean_logic, 1)`. Taking means for character 
+The mean of numerical variable is `r mean_numeric` and the mean of logical variable is `r round(mean_logic, 1)`. Taking means for character 
 variable and factor variable do not work.\
 
 Convert the logical, character, and factor variables to numeric variables.\
@@ -69,24 +67,35 @@ Loading the `penguins` data set\
 data("penguins", package = "palmerpenguins")
 ```
 
-Assigning the `penguins` data set to data frame of Problem 2 called `p2_df`.\
+Converting the `penguins` data set to `tibble` called `p2_df`.\
 
 ```{r, copy_df}
-p2_df <- as.tibble(penguins)
+p2_df <- as_tibble(penguins)
+```
+
+Doing some summaries of the data.\
+
+```{r, some_summaries, echo = FALSE}
+max_flipper <- max(pull(p2_df, flipper_length_mm), na.rm = TRUE)
+min_flipper <- min(pull(p2_df, flipper_length_mm), na.rm = TRUE)
+mean_flipper <- round(mean(pull(p2_df, flipper_length_mm), na.rm = TRUE), 1)
+max_bill <- max(pull(p2_df, bill_length_mm), na.rm = TRUE)
+min_bill <- min(pull(p2_df, bill_length_mm), na.rm = TRUE)
+mean_bill <- round(mean(pull(p2_df, bill_length_mm), na.rm = TRUE), 1)
+max_bm <- max(pull(p2_df, body_mass_g), na.rm = TRUE)
+min_bm <- min(pull(p2_df, body_mass_g), na.rm = TRUE)
+mean_bm <- round(mean(pull(p2_df, body_mass_g), na.rm = TRUE), 1)
 ```
 
 The size of this data set is  `r nrow(p2_df)` observations with `r ncol(p2_df)` 
 variables. The variable names are ``r names(p2_df)``.\
-The max flipper length is `r max(pull(p2_df, flipper_length_mm), na.rm = TRUE)` mm, the min is `r min(pull(p2_df, flipper_length_mm), na.rm = TRUE)` mm, and the mean is `r round(mean(pull(p2_df, flipper_length_mm), na.rm = TRUE),1)` mm.\
-The max bill length is `r max(pull(p2_df, bill_length_mm), na.rm = TRUE)` mm, the 
-min is `r min(pull(p2_df, bill_length_mm), na.rm = TRUE)` mm and the mean is 
-`r round(mean(pull(p2_df, bill_length_mm), na.rm = TRUE),1)` mm.\
-The max body mass is `r max(pull(p2_df, body_mass_g), na.rm = TRUE)` g and the min is 
-`r min(pull(p2_df, body_mass_g), na.rm = TRUE)` g and the mean is 
-`r round(mean(pull(p2_df, body_mass_g), na.rm = TRUE),1)` g.\
-The numbers of penguins of each specie are `r table(p2_df$species)` 
-(`r names(table(pull(p2_df, species)))`). The numbers of penguins from each island are 
-`r table(pull(p2_df, island))` (`r names(table(pull(p2_df, island)))`).\
+The max flipper length is `r max_flipper` mm, the min is `r min_flipper` mm, and the mean is `r mean_flipper` mm.\
+The max bill length is `r max_bill` mm, the min is `r min_bill` mm and the mean 
+is `r mean_bill` mm.\
+The max body mass is `r max_bm` g and the min is `r min_bm` g and the mean is 
+`r mean_bm` g.\
+The numbers of penguins of each specie are `r table(pull(p2_df, species))` 
+(`r names(table(pull(p2_df, species)))`). The numbers of penguins from each island are `r table(pull(p2_df, island))` (`r names(table(pull(p2_df, island)))`).\
 There are `r table(pull(p2_df, sex))[1]` females and `r table(pull(p2_df, sex))[2]` males.\
 
 Make a scatter plot of `flipper_length_mm` (y) vs `bill_length_mm` (x); color points using the `species` variable.\
